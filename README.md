@@ -7,5 +7,9 @@ This is a simple js file that handle form validation with sweet alert
 3 maximum lenth of input give the max lenth
 4 required or not true or false
 5 type of input string,number,email,password
+```
+validation('first_name', '', '', 'true', 'string');
+validation('email', '', '', 'true', 'password');
+validation('password', '5', '10', 'true', 'password');
 
-validation('email_id', '5', '10', 'true', 'password');
+```
