@@ -1,0 +1,13 @@
+.success {
+  border: solid rgb(18, 218, 18);
+}
+
+.validation-error {
+  color: red;
+  padding: auto;
+  margin: auto;
+}
+
+.error {
+  border: solid red;
+}
