@@ -35,7 +35,7 @@ validation('email', '', '', 'true', 'password');
 validation('password', '5', '10', 'true', 'password');
 ```
 
-# Advance
+### Advance
 
 ```
    $('#submit').click(function () {
