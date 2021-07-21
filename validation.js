@@ -34,8 +34,14 @@ function success(name) {
     .addClass("success")
     .removeClass("error");
 }
+function error_vali(name) {
+  $('input[name="' + name + '"]')
+    .removeClass("success")
+    .addClass("error");
+}
 // print the error message
 function validate_error_message(name, error_no) {
+  name = name.replace("_", " ");
   let msg = "";
   switch (error_no) {
     case 1:
@@ -56,14 +62,13 @@ function validate_error_message(name, error_no) {
     case 6:
       msg = capitalize(name) + " Not Valid  !";
       break;
-      case 7:
-      msg = capitalize(name) + " Must be contain Charcter Number and Symbol 8 Charcter long !";
+    case 7:
+      msg =
+        capitalize(name) +
+        " Must be contain Charcter Number and Symbol 8 Charcter long !";
       break;
   }
   swal("Oops!", msg, "error");
-  $('input[name="' + name + '"]')
-    .removeClass("success")
-    .addClass("error");
 }
 function validation(
   name,
@@ -79,8 +84,6 @@ function validation(
       validate_error_message(name, 1);
       input_focus(name);
       error++;
-    } else {
-      success(name);
     }
   }
   if (checkparam(max_lenth)) {
@@ -88,8 +91,6 @@ function validation(
       validate_error_message(name, 2);
       input_focus(name);
       error++;
-    } else {
-      success(name);
     }
   }
   if (checkparam(required)) {
@@ -97,8 +98,6 @@ function validation(
       validate_error_message(name, 3);
       input_focus(name);
       error++;
-    } else {
-      success(name);
     }
   }
   if (checkparam(type)) {
@@ -108,8 +107,6 @@ function validation(
         validate_error_message(name, 4);
         input_focus(name);
         error++;
-      } else {
-        success(name);
       }
     }
     if (type == "number" || type == "2") {
@@ -117,8 +114,6 @@ function validation(
         validate_error_message(name, 5);
         input_focus(name);
         error++;
-      } else {
-        success(name);
       }
     }
     if (type == "email" || type == "3") {
@@ -127,8 +122,7 @@ function validation(
       if (!regex.test(input.val())) {
         validate_error_message(name, 6);
         input_focus(name);
-      } else {
-        success(name);
+        error++;
       }
     }
     if (type == "password" || type == "4") {
@@ -136,14 +130,15 @@ function validation(
       if (!pass.test(input.val())) {
         validate_error_message(name, 7);
         input_focus(name);
-      } else {
-        success(name);
+        error++;
       }
     }
   }
   if (error == 0) {
+    success(name);
     return true;
   } else {
+    error_vali(name);
     return false;
   }
 }

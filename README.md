@@ -23,16 +23,16 @@ include validation.css file into your project ( in header)
 
 ### Basic
 
-1. input name
-2. minmum lenth of input give the min lenth
-3. maximum lenth of input give the max lenth
+1. Input filed name
+2. minmum lenth of input give the minimum lenth
+3. maximum lenth of input give the maximum lenth
 4. required or not true or false
 5. type of input string,number,email,password
 
 ```
-validation('first_name', '', '', 'true', 'string');
+validation('first_name', '2', '20', 'true', 'string');
 validation('email', '', '', 'true', 'password');
-validation('password', '5', '10', 'true', 'password');
+validation('password', '8', '16', 'true', 'password');
 ```
 
 ### Advance

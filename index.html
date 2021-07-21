@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control invalid" id="exampleInputPassword1" required>
+                    <input type="password" class="form-control invalid" id="exampleInputPassword1" name="password">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -44,7 +44,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <script>
         $('#submit').click(function () {
-            validation('email_id', '', '', '', 'password');
+            validation('email_id', '', '', 'true', 'email');
+            validation('password', '8', '16', 'true', 'password');
         });
     </script>
 </body>
