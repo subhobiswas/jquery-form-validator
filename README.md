@@ -4,7 +4,7 @@ This is a simple js file that handle form validation with sweet alert
 
 ### Requirements
 
-sweetalert setup in your html you can chek cdn alreday included in index.html.<br>
+sweetalert setup in your html you can check cdn alreday included in index.html.<br>
 jquery cdn
 
 ### setup
