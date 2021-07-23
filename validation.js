@@ -1,4 +1,4 @@
-// make upparcase of a string
+
 function capitalize(s) {
   return s[0].toUpperCase() + s.slice(1);
 }
@@ -12,8 +12,8 @@ function checkparam(name) {
 }
 // return the lenth of input value
 function input_lenth(name) {
-  let lenth = $('input[name="' + name + '"]').val().length;
-  return parseInt(lenth);
+  let lenth = $('input[name="' + name + '"]').val();
+  return parseInt(lenth.length);
 }
 // focus on input box
 function input_focus(name) {
@@ -32,8 +32,10 @@ function error_vali(name) {
 }
 // print the error message
 function validate_error_message(name, error_no) {
-  // replace _ with a space
-  name = name.replace(/_/g, " ");
+	// set focus on error input
+	input_focus(name);
+	// replace _ with a space 
+  name = name.replace(/_/g," ");
   let msg = "";
   switch (error_no) {
     case 1:
@@ -60,6 +62,7 @@ function validate_error_message(name, error_no) {
         " Must be contain Charcter Number and Symbol 8 Charcter long !";
       break;
   }
+	// here is your sweet alert
   swal("Oops!", msg, "error");
 }
 function validation(
@@ -74,37 +77,33 @@ function validation(
   if (checkparam(min_lenth)) {
     if (lenth < parseInt(min_lenth)) {
       validate_error_message(name, 1);
-      input_focus(name);
       error++;
     }
   }
   if (checkparam(max_lenth)) {
     if (lenth > parseInt(max_lenth)) {
       validate_error_message(name, 2);
-      input_focus(name);
       error++;
     }
   }
   if (checkparam(required)) {
     if (lenth < 1) {
       validate_error_message(name, 3);
-      input_focus(name);
+      
       error++;
     }
   }
   if (checkparam(type)) {
     let input = $('input[name="' + name + '"]');
     if (type == "string" || type == "1") {
-      if (typeof input != "string") {
+      if (!isNaN(input.val())) {
         validate_error_message(name, 4);
-        input_focus(name);
         error++;
       }
     }
     if (type == "number" || type == "2") {
-      if (typeof input != "number") {
+      if (isNaN(input.val())) {
         validate_error_message(name, 5);
-        input_focus(name);
         error++;
       }
     }
@@ -113,7 +112,6 @@ function validation(
         /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if (!regex.test(input.val())) {
         validate_error_message(name, 6);
-        input_focus(name);
         error++;
       }
     }
@@ -121,7 +119,7 @@ function validation(
       let pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
       if (!pass.test(input.val())) {
         validate_error_message(name, 7);
-        input_focus(name);
+        
         error++;
       }
     }
