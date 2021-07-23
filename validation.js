@@ -41,7 +41,8 @@ function error_vali(name) {
 }
 // print the error message
 function validate_error_message(name, error_no) {
-  name = name.replace("_", " ");
+  // replace _ with a space
+  name = name.replace(/_/g, " ");
   let msg = "";
   switch (error_no) {
     case 1:
