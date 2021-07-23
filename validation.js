@@ -1,12 +1,3 @@
-// var booleanValue = true;
-// var numericalValue = 354;
-// var stringValue = "This is a String";
-// var stringObject = new String( "This is a String Object" );
-// alert(typeof booleanValue) // displays "boolean"
-// alert(typeof numericalValue) // displays "number"
-// alert(typeof stringValue) // displays "string"
-// alert(typeof stringObject) // displays "object"
-
 // make upparcase of a string
 function capitalize(s) {
   return s[0].toUpperCase() + s.slice(1);
